@@ -12,11 +12,11 @@ A reusable starting point for projects in the Mechanical Engineering Department.
 
 ## Project overview
 
-- **Project name:** [Enter project name]
+- **Project name:** Mechanical gripper
 - **Problem / purpose:** [Describe the engineering need]
-- **Team:** [Names and responsibilities]
-- **Status:** Planning
-- **Last updated:** [YYYY-MM-DD]
+- **Team:** Suraphum Changlek 6730552921 / Suphasan Rodphai 6730520821
+- **Status:** Finished
+- **Last updated:** 2026-11-13
 
 ## Repository structure
 
