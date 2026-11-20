@@ -34,7 +34,7 @@ Organize experiment procedures, raw data, and results. Record the objective, set
 | **Input** | Sine wave → Saturation block → Revolute joint (Gear right) |
 | **Gear transmission** | Common Gear Constraint (Gear right ↔ Gear left) |
 | **Measurement** | Tip frame on the right gripper jaw |
-| **Units** | Velocity: m/s, Acceleration: m/s², Angle: deg |
+| **Units** | Velocity: mm/s, Acceleration: mm/s², Angle: deg |
 | **Calibration / Verification** | Tip trajectory compared with the EXP-01 path |
 | **Analysis method** | Plot velocity and acceleration vs. input angle |
 | **Operator** | Suraphum Changlek |
