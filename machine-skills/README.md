@@ -2,8 +2,7 @@
 
 Store machine command sets, operating procedures, and skill instructions here. For each skill, state the supported machine and software versions, required setup, input format, expected output, and safety limits. Review commands before running them on physical equipment.
 
-> **Note:** This project is currently simulation-based. The skills below are software procedures. Hardware skills (motor control) are added only if a physical prototype is built.
-
+> **Note:** This project is currently simulation-based. The skills below are software procedures.
 ## Skill 1: Run the Symbolic Kinematics Script
 
 | Item | Detail |
