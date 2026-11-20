@@ -1,0 +1,143 @@
+clc
+clear all
+
+% 1. กำหนดตัวแปรสัญลักษณ์
+theta1 = sym('theta1');
+theta4 = sym('theta4');
+thetaA = sym('thetaA');
+
+% 2. พารามิเตอร์ของกลไก
+
+o1x = 0;  o1y = 0;
+o4x = -8.25;    
+o4y = 20.891; 
+
+l2 = 31;   
+l4 = 31;   
+l3 = 22;   
+lg = 32.919;   
+
+offset_deg = -6.6; 
+
+% 3. Kinematic Equations
+
+Ax = l2*cos(theta1); Ay = l2*sin(theta1);
+Bx = o4x + l4*cos(theta4); By = o4y + l4*sin(theta4);
+
+eq1 = Bx == Ax + l3*cos(thetaA);
+eq2 = By == Ay + l3*sin(thetaA);
+sol = solve([eq1 eq2], [theta4 thetaA]);
+
+theta4_sol = sol.theta4(2); 
+thetaA_sol = sol.thetaA(2); 
+
+BxNew = real(subs(Bx, theta4, theta4_sol));
+ByNew = real(subs(By, theta4, theta4_sol));
+
+offset_rad = deg2rad(offset_deg);
+GxNew = BxNew + lg * cos(thetaA_sol + offset_rad);
+GyNew = ByNew + lg * sin(thetaA_sol + offset_rad);
+
+% 4. Kinematics & Force
+
+v_gx = diff(GxNew, theta1);
+v_gy = diff(GyNew, theta1);
+vel_g = sqrt(v_gx^2 + v_gy^2);
+
+a_gx = diff(v_gx, theta1);
+a_gy = diff(v_gy, theta1);
+acc_g = sqrt(a_gx^2 + a_gy^2);
+
+T_in = 10; % สมมติแรงบิดมอเตอร์ = 0.01 N.m (10 N.mm)
+F_grip_sym = abs(T_in ./ v_gx); 
+
+pos_g_f = matlabFunction(GxNew, 'Vars', {theta1}); 
+vel_g_f = matlabFunction(vel_g, 'Vars', {theta1});
+acc_g_f = matlabFunction(acc_g, 'Vars', {theta1});
+F_grip_f = matlabFunction(F_grip_sym, 'Vars', {theta1});
+
+Ax_f = matlabFunction(Ax, 'Vars', {theta1});
+Ay_f = matlabFunction(Ay, 'Vars', {theta1});
+Bx_f = matlabFunction(BxNew, 'Vars', {theta1});
+By_f = matlabFunction(ByNew, 'Vars', {theta1});
+Gx_f = matlabFunction(GxNew, 'Vars', {theta1});
+Gy_f = matlabFunction(GyNew, 'Vars', {theta1});
+
+% 5. Operating Range: -20 ถึง 90 องศา
+
+theta_range = deg2rad(-20:1:90); 
+plot_angle = rad2deg(theta_range);
+
+pos_vals = real(pos_g_f(theta_range));
+vel_vals = real(vel_g_f(theta_range));
+acc_vals = real(acc_g_f(theta_range));
+force_vals = real(F_grip_f(theta_range));
+
+% 6. Plots
+
+figure('Name', 'Mechanism Analysis', 'Position', [100, 100, 800, 1000]);
+
+subplot(4,1,1)
+plot(plot_angle, pos_vals, 'b', 'LineWidth', 1.5)
+grid on; hold on;
+xlim([min(plot_angle) max(plot_angle)])
+title('Limit Position of the Gripper')
+xlabel('Angle (deg)')
+ylabel('Position (mm)')
+
+subplot(4,1,2)
+plot(plot_angle, vel_vals, 'r', 'LineWidth', 1.5)
+grid on; hold on;
+xlim([min(plot_angle) max(plot_angle)])
+title('Velocity of the Gripper')
+xlabel('Angle (deg)')
+ylabel('Velocity (mm/rad)')
+
+subplot(4,1,3)
+plot(plot_angle, acc_vals, 'g', 'LineWidth', 1.5)
+grid on; hold on;
+xlim([min(plot_angle) max(plot_angle)])
+title('Acceleration of the Gripper')
+xlabel('Angle (deg)')
+ylabel('Acceleration (mm/rad^2)')
+
+subplot(4,1,4)
+plot(plot_angle, force_vals, 'm', 'LineWidth', 1.5)
+grid on; hold on;
+xlim([min(plot_angle) max(plot_angle)])
+title('Force Analysis: Gripping Force (Input Torque = 0.01 N.m)')
+xlabel('Input Motor Angle (deg)')
+ylabel('Force (N)')
+
+% 7. Mechanism Path & Animation
+
+theta_anim = @(t) deg2rad(90) + deg2rad(-110) * (0.5 - 0.5*cos(t * pi / 5));
+
+l2_link = @(t) plot([o1x real(Ax_f(theta_anim(t)))], [o1y real(Ay_f(theta_anim(t)))], '-r', 'LineWidth', 2.5); 
+l4_link = @(t) plot([o4x real(Bx_f(theta_anim(t)))], [o4y real(By_f(theta_anim(t)))], '-b', 'LineWidth', 2.5); 
+l3_link = @(t) plot([real(Ax_f(theta_anim(t))) real(Bx_f(theta_anim(t))) real(Gx_f(theta_anim(t)))], ...
+    [real(Ay_f(theta_anim(t))) real(By_f(theta_anim(t))) real(Gy_f(theta_anim(t)))], 'o-', 'Color', [0 0.5 0], 'LineWidth', 2.5); 
+
+figure('Name', 'Mechanism Animation (Right Side)');
+hold on
+grid on
+plot(o1x, o1y, 'k^', 'MarkerSize', 8, 'MarkerFaceColor', 'r') 
+plot(o4x, o4y, 'k^', 'MarkerSize', 8, 'MarkerFaceColor', 'b') 
+
+% Trajectory 
+plot(real(Ax_f(theta_range)), real(Ay_f(theta_range)), '--r', 'LineWidth', 1.2) 
+plot(real(Bx_f(theta_range)), real(By_f(theta_range)), '--b', 'LineWidth', 1.2) 
+plot(real(Gx_f(theta_range)), real(Gy_f(theta_range)), '--g', 'LineWidth', 1.2) 
+
+fanimator(l2_link,"AnimationRange",[0 10])
+fanimator(l4_link,"AnimationRange",[0 10])
+fanimator(l3_link,"AnimationRange",[0 10])
+
+hold off
+axis equal
+title('Mechanical Gripper Simulation (Right Side)')
+xlabel('X (mm)'); ylabel('Y (mm)')
+
+playAnimation()
+
+
