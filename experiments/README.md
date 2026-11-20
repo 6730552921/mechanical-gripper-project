@@ -18,7 +18,6 @@ Organize experiment procedures, raw data, and results. Record the objective, set
 | **Units** | Position: mm, Velocity: mm/rad, Acceleration: mm/rad², Force: N, Angle: deg |
 | **Calibration / Verification** | DOF check = 1 (3(7−1) − 2(8) − 1) |
 | **Analysis method** | v = dG/dθ₁, a = d²G/dθ₁², F_grip = abs(T_in / v_gx) |
-| **Date** | YYYY-MM-DD |
 | **Operator** | Suphasan Rodphai, Suraphum Changlek |
 
 **Raw data:** `raw/`
