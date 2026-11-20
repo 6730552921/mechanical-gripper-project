@@ -20,8 +20,6 @@ Organize experiment procedures, raw data, and results. Record the objective, set
 | **Analysis method** | v = dG/dθ₁, a = d²G/dθ₁², F_grip = abs(T_in / v_gx) |
 | **Operator** | Suphasan Rodphai|
 
-**Raw data:** `raw/`
-**Processed results:** `processed/` (plots and tables)
 
 **Key findings**
 - Fully open at θ₁ ≈ 2°–3°, fully closed at θ₁ = 90°
@@ -41,8 +39,6 @@ Organize experiment procedures, raw data, and results. Record the objective, set
 | **Analysis method** | Plot velocity and acceleration vs. input angle |
 | **Operator** | Suraphum Changlek |
 
-**Raw data:** `raw/`
-**Processed results:** `processed/`
 
 **Key findings**
 - The trajectories from EXP-01 and EXP-02 match
