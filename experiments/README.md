@@ -18,7 +18,7 @@ Organize experiment procedures, raw data, and results. Record the objective, set
 | **Units** | Position: mm, Velocity: mm/rad, Acceleration: mm/rad², Force: N, Angle: deg |
 | **Calibration / Verification** | DOF check = 1 (3(7−1) − 2(8) − 1) |
 | **Analysis method** | v = dG/dθ₁, a = d²G/dθ₁², F_grip = abs(T_in / v_gx) |
-| **Operator** | Suphasan Rodphai, Suraphum Changlek |
+| **Operator** | Suphasan Rodphai|
 
 **Raw data:** `raw/`
 **Processed results:** `processed/` (plots and tables)
@@ -39,7 +39,7 @@ Organize experiment procedures, raw data, and results. Record the objective, set
 | **Units** | Velocity: m/s, Acceleration: m/s², Angle: deg |
 | **Calibration / Verification** | Tip trajectory compared with the EXP-01 path |
 | **Analysis method** | Plot velocity and acceleration vs. input angle |
-| **Operator** | Suphasan Rodphai, Suraphum Changlek |
+| **Operator** | Suraphum Changlek |
 
 **Raw data:** `raw/`
 **Processed results:** `processed/`
