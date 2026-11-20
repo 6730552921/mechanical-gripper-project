@@ -35,14 +35,14 @@ Include model files and scripts with solver settings, assumptions, boundary cond
 * **Boundary conditions:** Base is fixed to the World Frame; the only input is the motor angle on the Gear right revolute joint
 * **Input:** Sine wave → Saturation → Revolute joint (Gear right)
 * **Gear transmission:** Common Gear Constraint (Gear right ↔ Gear left, opposite rotation)
-* **Solver:** ___
-* **Step size:** ___
+* **Solver:** Auto
+* **Step size:** Auto
 
 ## 5. How to Reproduce
 
 1. Open MATLAB R2026b and set the working folder to this repository.
 2. Run the symbolic script in `software/matlabs code` to get the position, velocity, acceleration and force plots.
-3. Open the Simulink model (`.slx`), check the World Frame and Solver Configuration, then press **Run**.
+3. Open the Simulink model (``), check the World Frame and Solver Configuration, then press **Run**.
 4. Compare the tip trajectory from Simulink with the symbolic result.
 
 ## 6. Known Limitations
