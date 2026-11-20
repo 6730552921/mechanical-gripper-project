@@ -21,8 +21,3 @@ Store project images, GIFs, and concise clips here. Use descriptive filenames an
 
 *Figure 2: 3D model with Gear right (yellow), Gear left (red), support links (blue) and jaws (green).*
 
-## Rules
-
-- Use descriptive filenames, for example `gripper_multibody_3d.gif` instead of `gripper.gif`.
-- Add a caption for every image.
-- Keep files small. Compress GIFs before uploading.
