@@ -4,20 +4,7 @@ Organize experiment procedures, raw data, and results. Record the objective, set
 
 > **Note:** This project is simulation-based, so the experiments below are "virtual experiments" run in MATLAB.
 
-## Folder Structure
 
-```
-experiments/
-├── README.md
-├── EXP-01_symbolic_kinematics/
-│   ├── raw/
-│   ├── processed/
-│   └── scripts/
-└── EXP-02_simulink_multibody/
-    ├── raw/
-    ├── processed/
-    └── model/
-```
 
 ## EXP-01: Symbolic Kinematics (MATLAB Symbolic Math Toolbox)
 
@@ -53,7 +40,6 @@ experiments/
 | **Units** | Velocity: m/s, Acceleration: m/s², Angle: deg |
 | **Calibration / Verification** | Tip trajectory compared with the EXP-01 path |
 | **Analysis method** | Plot velocity and acceleration vs. input angle |
-| **Date** | YYYY-MM-DD |
 | **Operator** | Suphasan Rodphai, Suraphum Changlek |
 
 **Raw data:** `raw/`
@@ -67,8 +53,3 @@ experiments/
 - Use a smoother input or a rate limiter instead of hard saturation
 - Plot against time instead of input angle
 
-## Rules
-
-- Never edit raw data. Put anything filtered or calculated in `processed/`.
-- Name files like `EXP01_pos_vel_acc_YYYY-MM-DD.csv`.
-- Always write units in plots and tables.
