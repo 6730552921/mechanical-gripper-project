@@ -42,7 +42,7 @@ Include model files and scripts with solver settings, assumptions, boundary cond
 
 1. Open MATLAB R2026b and set the working folder to this repository.
 2. Run the symbolic script in `software/matlabs code` to get the position, velocity, acceleration and force plots.
-3. Open the Simulink model (``), check the World Frame and Solver Configuration, then press **Run**.
+3. Open the Simulink model (`.slx`), check the World Frame and Solver Configuration, then press **Run**.
 4. Compare the tip trajectory from Simulink with the symbolic result.
 
 ## 6. Known Limitations
