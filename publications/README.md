@@ -12,5 +12,5 @@ Store project-related journal and conference papers when redistribution is permi
 | **Advisor** | Assoc. Prof. Ratchatin Chancharoen |
 | **Status** | Course report (not published) |
 | **File** | [PROJECT MECHANICS.pdf](https://github.com/user-attachments/files/35165380/PROJECT.MECHANICS.pdf)
-  |
+
 
