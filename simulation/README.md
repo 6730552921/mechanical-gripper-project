@@ -2,7 +2,7 @@
 
 Include model files and scripts with solver settings, assumptions, boundary conditions, material properties, and instructions for reproducing results. Identify the software and version used.
 1. Software & Environment
-* **Software:** MATLAB R2024b *(ปรับแก้ปีเวอร์ชันตามที่ใช้จริง)*
+* **Software:** MATLAB R2026b 
 * **Required Toolboxes:** 
   * Symbolic Math Toolbox
   * Simulink
