@@ -8,7 +8,7 @@ Store machine command sets, operating procedures, and skill instructions here. F
 | Item | Detail |
 |---|---|
 | **Purpose** | Compute position, velocity, acceleration, and gripping force of the gripper tip vs. input angle θ₁ |
-| **Supported software** | MATLAB (version: 2026b) + Symbolic Math Toolbox |
+| **Supported software** | MATLAB (version: R2026b) + Symbolic Math Toolbox |
 | **Required setup** | Open the script in `software/` and set the link parameters |
 | **Input format** | Link lengths (mm): l₂ = 31, l₃ = 22, l₄ = 31, l_g = 32.919; pivot O₄ = (−8.25, 20.891) mm; offset = −6.6°; θ₁ range = −20° to 90°; T_in = 10 N·mm |
 | **Command** | Run the script in the MATLAB command window |
@@ -20,7 +20,7 @@ Store machine command sets, operating procedures, and skill instructions here. F
 | Item | Detail |
 |---|---|
 | **Purpose** | Simulate the gear-driven parallel gripper and record the tip trajectory |
-| **Supported software** | MATLAB Simulink + Simscape Multibody (version: 2026b) |
+| **Supported software** | MATLAB Simulink + Simscape Multibody (version: R2026b) |
 | **Required setup** | Open the `.slx` model in `simulation/`, check World Frame and Solver Configuration |
 | **Input format** | Sine wave → Saturation block → Revolute joint (Gear right) |
 | **Expected output** | Tip trajectory plot, velocity and acceleration vs. input angle |
