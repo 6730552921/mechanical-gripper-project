@@ -11,6 +11,7 @@ Store project-related journal and conference papers when redistribution is permi
 | **Authors** | Suphasan Rodphai (6730520821), Suraphum Changlek (6730552921) |
 | **Advisor** | Assoc. Prof. Ratchatin Chancharoen |
 | **Status** | Course report (not published) |
-| **File** | [PROJECT MECHANICS.pdf](https://github.com/user-attachments/files/35165380/PROJECT.MECHANICS.pdf)
+| **File** | [PROJECT MECHANICS.pdf](https://github.com/user-attachments/files/35165799/PROJECT.MECHANICS.pdf)
+
 
 
